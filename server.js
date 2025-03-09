@@ -21,6 +21,7 @@ app.post("/predict", upload.single("file"), async (req, res) => {
     }
 
     const imagePath = path.resolve(req.file.path);
+    console.log("✅ File received:", imagePath);
     const formData = new FormData();
     formData.append("file", fs.createReadStream(imagePath));
 
@@ -34,7 +35,7 @@ app.post("/predict", upload.single("file"), async (req, res) => {
 
     // Cleanup: Delete the uploaded file after processing
     fs.unlinkSync(imagePath);
-
+    console.log("✅ Flask API Response:", response.data);
     res.json(response.data);
   } catch (error) {
     console.error("Error processing image:", error.message);
