@@ -7,10 +7,10 @@ const fs = require("fs");
 const FormData = require("form-data");
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3009;
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({ origin: "*" }));
 
 const upload = multer({ dest: "uploads/" });
 
