@@ -25,7 +25,7 @@ app.post("/predict", upload.single("file"), async (req, res) => {
     formData.append("file", fs.createReadStream(imagePath));
 
     const response = await axios.post(
-      "http://localhost:5000/predict",
+      "https://flask-api-g4ld.onrender.com/predict",
       formData,
       {
         headers: formData.getHeaders(),
